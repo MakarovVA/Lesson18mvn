@@ -1,5 +1,6 @@
 public class Game {
     static boolean isGreenLight = false;
+    static int MAX_SPEED = 1;
 
     public static int calcDroppedOut(int[] speeds) { //первый метод - количество выбывающих
         int calcOut = 0;
@@ -7,7 +8,7 @@ public class Game {
             calcOut = 0;
         } else {
             for (int speed : speeds) {
-                if (speed != 0) {
+                if (speed > MAX_SPEED) {
                     calcOut = calcOut + 1;
                 }
 
@@ -22,7 +23,7 @@ public class Game {
             cnt = 0;
         } else {
             for (int speed : speeds) {
-                if (speed != 0) {
+                if (speed > MAX_SPEED) {
                     cnt = cnt + 1;
                 }
 
@@ -31,7 +32,7 @@ public class Game {
         int[] ans = new int[cnt];
         int i = 0;
         for (int speed : speeds) {
-            if (speed != 0) {
+            if (speed > MAX_SPEED) {
                 ans[i] = speed;
                 i++;
             }
@@ -47,7 +48,7 @@ public class Game {
             }
         } else {
             for (int speed : speeds) {
-                if (speed == 0) {
+                if (speed <= MAX_SPEED) {
                     cnt2++;
                 }
             }
@@ -61,7 +62,7 @@ public class Game {
             }
         } else {
             for (int speed : speeds) {
-                if (speed == 0) {
+                if (speed <= MAX_SPEED) {
                     ans2[i] = speed;
                     i++;
                 }

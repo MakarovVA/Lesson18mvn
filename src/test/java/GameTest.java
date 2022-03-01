@@ -8,7 +8,7 @@ public class GameTest {
 
         int actual = Game.calcDroppedOut(speeds);
 
-        int expected = 3;
+        int expected = 2;
         Assertions.assertEquals(expected, actual);
 
     }
@@ -18,7 +18,7 @@ public class GameTest {
 
         int[] actual = Game.outSpeeds(speeds);
 
-        int[] expected = { 1, 2, 3 };
+        int[] expected = { 2, 3 };
 
         Assertions.assertArrayEquals(expected, actual);
 
@@ -29,7 +29,7 @@ public class GameTest {
 
         int[] actual = Game.inSpeeds(speeds);
 
-        int[] expected = { 0 };
+        int[] expected = { 0, 1 };
 
         Assertions.assertArrayEquals(expected, actual);
 
