@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Main {
 
 
@@ -12,6 +14,14 @@ class Main {
 
 
         int[] inSpeeds = Game.inSpeeds(speeds);
+
+        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
+
+        Game.isGreenLight = true;
+
+        String[] survNames = Game.getNames(nameSpeed);
+
+        System.out.println(Arrays.toString(survNames));
 
 
 

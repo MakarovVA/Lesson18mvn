@@ -34,4 +34,46 @@ public class GameTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+    @Test
+    public void allSurvives() {
+        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
+
+        Game.isGreenLight = true;
+
+        String[] expected = {"Ivan", "Egor", "Olga", "Petr"};
+
+        String[] actual = Game.getNames(nameSpeed);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void allLose() {
+        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
+
+        Game.isGreenLight = false;
+
+        Game.MAX_SPEED = 1;
+
+        String[] expected = {};
+
+        String[] actual = Game.getNames(nameSpeed);
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void someLose() {
+        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
+
+        Game.isGreenLight = false;
+
+        Game.MAX_SPEED = 3;
+
+        String[] expected = {"Ivan", "Egor"};
+
+        String[] actual = Game.getNames(nameSpeed);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }

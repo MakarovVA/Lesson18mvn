@@ -70,4 +70,32 @@ public class Game {
         }
         return ans2;
     }
+    public static String[] getNames (String[] nameSpeeds) {
+        int cnt = 0;
+        for (String s : nameSpeeds) {
+            String [] nameSpeed = s.split(" ");
+            int value = Integer.parseInt (nameSpeed [1]);
+            if (isGreenLight) {
+                cnt++;
+            }
+            else if (value <= MAX_SPEED)
+                cnt++;
+        }
+        String[] names = new String [cnt];
+        int i = 0;
+        for (String s : nameSpeeds) {
+            String[] nameSpeed = s.split(" ");
+            int value = Integer.parseInt(nameSpeed[1]);
+            if (isGreenLight) {
+                names[i] = nameSpeed[0];
+                i++;
+            } else if (value <= MAX_SPEED) {
+                names[i] = nameSpeed[0];
+                i++;
+            }
+        }
+        return names;
+
+    }
+
 }
