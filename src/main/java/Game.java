@@ -1,8 +1,13 @@
 public class Game {
-    static boolean isGreenLight = false;
-    static int MAX_SPEED = 1;
+    public boolean isGreenLight;
+    public int MAX_SPEED = 1;
 
-    public static int calcDroppedOut(int[] speeds) { //первый метод - количество выбывающих
+    public Game (boolean isGreenLight){
+        this.isGreenLight = isGreenLight;
+    }
+
+
+    public int calcDroppedOut(int[] speeds) { //первый метод - количество выбывающих
         int calcOut = 0;
         if (isGreenLight) {
             calcOut = 0;
@@ -17,7 +22,7 @@ public class Game {
         return calcOut;
     }
 
-    public static int[] outSpeeds(int[] speeds) { // второй метод - массив из скоростей выбывающих
+    public int[] outSpeeds(int[] speeds) { // второй метод - массив из скоростей выбывающих
         int cnt = 0;
         if (isGreenLight) {
             cnt = 0;
@@ -40,7 +45,7 @@ public class Game {
         return ans;
     }
 
-    public static int[] inSpeeds(int[] speeds) { // третий метод - массив из скоростей не выбывающих
+    public int[] inSpeeds(int[] speeds) { // третий метод - массив из скоростей не выбывающих
         int cnt2 = 0;
         if (isGreenLight) {
             for (int speed : speeds) {
@@ -70,7 +75,7 @@ public class Game {
         }
         return ans2;
     }
-    public static String[] getNames (String[] nameSpeeds) {
+    public String[] getNames (String[] nameSpeeds) {
         int cnt = 0;
         for (String s : nameSpeeds) {
             String [] nameSpeed = s.split(" ");

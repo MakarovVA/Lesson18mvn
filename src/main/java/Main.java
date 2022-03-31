@@ -7,21 +7,25 @@ class Main {
 
         int[] speeds = { 0, 1, 2, 3 };
 
-        int calcOut = Game.calcDroppedOut(speeds);
+        Game game = new Game(false);
+
+        int calcOut = game.calcDroppedOut(speeds);
 
 
-        int[] offSpeeds = Game.outSpeeds(speeds);
+        int[] offSpeeds = game.outSpeeds(speeds);
 
 
-        int[] inSpeeds = Game.inSpeeds(speeds);
+        int[] inSpeeds = game.inSpeeds(speeds);
 
         String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
 
-        Game.isGreenLight = true;
+        game.isGreenLight = true;
 
-        String[] survNames = Game.getNames(nameSpeed);
+        String[] survNames = game.getNames(nameSpeed);
 
         System.out.println(Arrays.toString(survNames));
+
+
 
 
 
