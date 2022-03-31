@@ -2,84 +2,82 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class GameTest {
+
     @Test
-    public void shouldCalcDropped() {
-        Game game = new Game(false);
+    public void greenGameNotFailed () {
 
-        int[] speeds = { 0, 1, 2, 3 };
-
-        int actual = game.calcDroppedOut(speeds);
-
-        int expected = 2;
-        Assertions.assertEquals(expected, actual);
-
-    }
-    @Test
-    public void shouldFindOutSpeeds() {
-        Game game = new Game(false);
-
-        int[] speeds = { 0, 1, 2, 3 };
-
-        int[] actual = game.outSpeeds(speeds);
-
-        int[] expected = { 2, 3 };
-
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
-    @Test
-    public void shouldFindInSpeeds() {
-        Game game = new Game(false);
-
-        int[] speeds = { 0, 1, 2, 3 };
-
-        int[] actual = game.inSpeeds(speeds);
-
-        int[] expected = { 0, 1 };
-
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
-    @Test
-    public void allSurvives() {
         Game game = new Game(true);
 
-        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
+        boolean expected = false;
 
-        String[] expected = {"Ivan", "Egor", "Olga", "Petr"};
+        boolean actual = game.isFailed(1);
 
-        String[] actual = game.getNames(nameSpeed);
-
-        Assertions.assertArrayEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void allLose() {
+
+    public void redGameNotFailed () {
+
         Game game = new Game(false);
 
-        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
+        boolean expected = false;
 
-        game.MAX_SPEED = 1;
+        boolean actual = game.isFailed(0);
 
-        String[] expected = {};
-
-        String[] actual = game.getNames(nameSpeed);
-
-        Assertions.assertArrayEquals(expected, actual);
-
+        Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void someLose() {
+
+    public void redGameFailed () {
+
         Game game = new Game(false);
 
-        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
+        boolean expected = true;
 
-        game.MAX_SPEED = 3;
+        boolean actual = game.isFailed(1);
 
-        String[] expected = {"Ivan", "Egor"};
-
-        String[] actual = game.getNames(nameSpeed);
-
-        Assertions.assertArrayEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void greenSpdGameNotFailed () {
+
+        Game game = new SpeedyGame(true, 1);
+
+        boolean expected = false;
+
+        boolean actual = game.isFailed(1);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void redSpdGameNotFailed () {
+
+        Game game = new SpeedyGame(false, 2);
+
+        boolean expected = false;
+
+        boolean actual = game.isFailed(1);
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+
+    public void redSpdGameFailed () {
+
+        Game game = new SpeedyGame(false, 2);
+
+        boolean expected = true;
+
+        boolean actual = game.isFailed(4);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+
+
+
 }

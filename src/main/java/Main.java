@@ -5,25 +5,26 @@ class Main {
 
     public static void main(String[] args) {
 
-        int[] speeds = { 0, 1, 2, 3 };
-
         Game game = new Game(false);
 
-        int calcOut = game.calcDroppedOut(speeds);
+        boolean failed = game.isFailed(1);
 
+        if (failed) {
+            System.out.println("Игрок выбывает");
+        } else {
+            System.out.println("Игрок не выбывает");
+        }
 
-        int[] offSpeeds = game.outSpeeds(speeds);
+        Game spd = new SpeedyGame(false, 5);
 
+        boolean failed2 = spd.isFailed(2);
 
-        int[] inSpeeds = game.inSpeeds(speeds);
+        if (failed2) {
+            System.out.println("Игрок выбывает");
+        } else {
+            System.out.println("Игрок не выбывает");
+        }
 
-        String[] nameSpeed = {"Ivan 2", "Egor 3", "Olga 4", "Petr 5"};
-
-        game.isGreenLight = true;
-
-        String[] survNames = game.getNames(nameSpeed);
-
-        System.out.println(Arrays.toString(survNames));
 
 
 
