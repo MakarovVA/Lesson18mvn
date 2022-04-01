@@ -25,6 +25,19 @@ class Main {
             System.out.println("Игрок не выбывает");
         }
 
+        GameManager gameManager = new GameManager(game);
+
+        int[] speeds = {0, 0, 0, 1, 2};
+
+        System.out.println("Количество раундов: " + gameManager.surviveRounds(speeds));
+
+        GameManager gameManager2 = new GameManager(spd);
+
+        int[] speeds2 = {1, 2, 3, 4, 6};
+
+        System.out.println("Количество раундов: " + gameManager2.surviveRounds(speeds2));
+
+
 
 
 
