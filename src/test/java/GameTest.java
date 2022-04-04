@@ -176,5 +176,293 @@ public class GameTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public  void test1 () {
+        Game game = new Game(true);
+
+        Movable movable1 = new ConstantPlayer(1);
+
+        Movable movable2 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test2 () {
+        Game game = new Game(true);
+
+        Movable movable1 = new FastPlayer(1, 2);
+
+        Movable movable2 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test3 () {
+        Game game = new Game(true);
+
+        Movable movable2 = new FastPlayer(1, 2);
+
+        Movable movable1 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test4 () {
+        Game game = new Game(true);
+
+        Movable movable2 = new FastPlayer(1, 2);
+
+        Movable movable1 = new FastPlayer(2, 2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public  void test5 () {
+        Game game = new Game(false);
+
+        Movable movable1 = new ConstantPlayer(1);
+
+        Movable movable2 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test6 () {
+        Game game = new Game(false);
+
+        Movable movable1 = new FastPlayer(1, 2);
+
+        Movable movable2 = new ConstantPlayer(0);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = -1;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test7 () {
+        Game game = new Game(false);
+
+        Movable movable2 = new FastPlayer(0, 2);
+
+        Movable movable1 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = -1;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test8 () {
+        Game game = new Game(false);
+
+        Movable movable2 = new FastPlayer(1, 2);
+
+        Movable movable1 = new FastPlayer(2, 2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test9 () {
+        Game game = new SpeedyGame(true, 2);
+
+        Movable movable1 = new ConstantPlayer(1);
+
+        Movable movable2 = new ConstantPlayer(5);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test10 () {
+        Game game = new SpeedyGame(true, 1);
+
+        Movable movable1 = new FastPlayer(1, 2);
+
+        Movable movable2 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test11 () {
+        Game game = new SpeedyGame(true, 1);
+
+        Movable movable2 = new FastPlayer(1, 2);
+
+        Movable movable1 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test12 () {
+        Game game = new SpeedyGame(true, 1);
+
+        Movable movable2 = new FastPlayer(1, 2);
+
+        Movable movable1 = new FastPlayer(2, 2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public  void test13 () {
+        Game game = new SpeedyGame(false,1);
+
+        Movable movable1 = new ConstantPlayer(1);
+
+        Movable movable2 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 1;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test14 () {
+        Game game = new SpeedyGame(false, 1);
+
+        Movable movable1 = new FastPlayer(1, 2);
+
+        Movable movable2 = new ConstantPlayer(0);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = -1;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test15 () {
+        Game game = new SpeedyGame(false,6);
+
+        Movable movable2 = new FastPlayer(0, 2);
+
+        Movable movable1 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test16 () {
+        Game game = new SpeedyGame(false, 0);
+
+        Movable movable2 = new FastPlayer(1, 2);
+
+        Movable movable1 = new FastPlayer(2, 2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 3);
+
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public  void test17 () {
+        Game game = new SpeedyGame(false,6);
+
+        Movable movable2 = new FastPlayer(0, 2);
+
+        Movable movable1 = new ConstantPlayer(2);
+
+        GameManager gameManager = new GameManager(game);
+
+        int actual = gameManager.loser(movable1, movable2, 5);
+
+        int expected = 1;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
 
 }

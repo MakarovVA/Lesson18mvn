@@ -37,6 +37,20 @@ class Main {
 
         System.out.println("Количество раундов: " + gameManager2.surviveRounds(speeds2));
 
+        Movable movable1 = new ConstantPlayer (5);
+
+        System.out.println(movable1.getSpeed());
+        System.out.println(movable1.getSpeed());
+        System.out.println(movable1.getSpeed());
+        System.out.println(movable1.getSpeed());
+
+        Movable movable2 = new FastPlayer(10, 5);
+
+        System.out.println(movable2.getSpeed());
+        System.out.println(movable2.getSpeed());
+        System.out.println(movable2.getSpeed());
+        System.out.println(movable2.getSpeed());
+
 
 
 
