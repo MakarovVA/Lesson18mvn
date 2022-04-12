@@ -134,4 +134,18 @@ public class StepCounterTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void test10() {
+        StepCounter stepCounter1 = new StepCounter();
+
+
+        stepCounter1.add(1, 11000);
+        stepCounter1.add(2, 50000);
+        stepCounter1.add(3, 110);
+        stepCounter1.add(4, 11010);
+
+        stepCounter1.printAllDaysByCriteria(value -> value > 10000);
+
+    }
 }

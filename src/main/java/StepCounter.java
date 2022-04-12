@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Predicate;
 
 public class StepCounter implements Comparable<StepCounter> {
 
@@ -44,6 +45,14 @@ public class StepCounter implements Comparable<StepCounter> {
 
         }
         return count;
+    }
+
+    public void printAllDaysByCriteria (Predicate<Integer> predicate) {
+        for  (int key : steps.keySet()) {
+            if (predicate.test(steps.get(key))) {
+                System.out.println("день " + key + " шагов " + steps.get(key));
+            }
+        }
     }
 
 
