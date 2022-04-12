@@ -7,6 +7,15 @@ public class StepCounter implements Comparable<StepCounter> {
     Map<Integer, Integer> steps = new HashMap<>();
 
     public int add(int day, int step) {
+
+        if (day > 365 || day < 1) {
+            throw new IllegalDayException(day);
+        }
+
+        if (step < 0) {
+            throw new IllegalStepsException(step);
+        }
+
         if (steps.containsKey(day)) {
             int value = steps.get(day);
             steps.put(day, value + step);

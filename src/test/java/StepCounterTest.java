@@ -148,4 +148,38 @@ public class StepCounterTest {
         stepCounter1.printAllDaysByCriteria(value -> value > 10000);
 
     }
+
+    @Test
+    public void test11() {
+        StepCounter stepCounter1 = new StepCounter();
+
+        Assertions.assertThrows(IllegalDayException.class, () -> stepCounter1.add(-1, 5));
+
+
+    }
+
+    @Test
+    public void test12() {
+        StepCounter stepCounter1 = new StepCounter();
+
+        Assertions.assertThrows(IllegalStepsException.class, () -> stepCounter1.add(2, -2));
+
+
+    }
+
+    @Test
+    public void test13() {
+        StepCounter stepCounter1 = new StepCounter();
+
+        Assertions.assertThrows(IllegalDayException.class, () -> stepCounter1.add(370, 5));
+
+
+    }
+
+    @Test
+    public void test14() {
+        StepCounter stepCounter1 = new StepCounter();
+
+        Assertions.assertThrows(IllegalDayException.class, () -> stepCounter1.add(-2, -2));
+    }
 }
